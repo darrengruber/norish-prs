@@ -193,6 +193,14 @@
           "abbreviated": "Afgekort"
         }
       },
+      "scaledUnits": {
+        "title": "Eenheden bij schalen",
+        "description": "Als je het aantal porties wijzigt, 16 el tonen als 1 kop en 1500 ml als 1,5 l",
+        "options": {
+          "tidy": "Vereenvoudigd",
+          "written": "Zoals geschreven"
+        }
+      },
       "afterPlanning": {
         "title": "Na het plannen van een recept",
         "description": "Wat er gebeurt als je een recept plant",

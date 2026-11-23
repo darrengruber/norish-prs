@@ -63,6 +63,8 @@ const recipePageColorMock = vi.hoisted(() => ({
   setMode: vi.fn(),
 }));
 
+const readableUnitsMock = vi.hoisted(() => ({ enabled: true, set: vi.fn() }));
+
 const deviceKindMock = vi.hoisted(() => ({ kind: "phone" as DeviceKind }));
 
 vi.mock("@norish/shared-react/reader", async () => ({
@@ -74,6 +76,7 @@ vi.mock("@norish/shared-react/reader", async () => ({
       todaySectionVisibility: todaysMealsMock.visibility,
       hiddenItems: hiddenItemsMock.hidden,
       recipePageColor: recipePageColorMock.mode,
+      readableUnits: readableUnitsMock.enabled,
     }),
     {
       kind: () => deviceKindMock.kind,
@@ -83,6 +86,7 @@ vi.mock("@norish/shared-react/reader", async () => ({
           todaySectionVisibility: todaysMealsMock.setVisibility,
           hiddenItems: hiddenItemsMock.setHidden,
           recipePageColor: recipePageColorMock.setMode,
+          readableUnits: readableUnitsMock.set,
         };
 
         setters[key]?.(next);
@@ -372,6 +376,34 @@ describe("PreferencesCard", () => {
     fireEvent.change(control, { target: { value: "theme" } });
 
     expect(recipePageColorMock.setMode).toHaveBeenCalledWith("theme");
+  });
+
+  it("tidies scaled units by default, offers keeping them as written, and stores the choice", () => {
+    readableUnitsMock.enabled = true;
+
+    render(<PreferencesCard />);
+
+    const control = screen.getByRole("combobox", { name: /scaledUnits\.title/i });
+    const options = within(control).getAllByRole("option") as HTMLOptionElement[];
+
+    expect(options.map((option) => option.value)).toEqual(["tidy", "written"]);
+    expect((control as HTMLSelectElement).value).toBe("tidy");
+
+    fireEvent.change(control, { target: { value: "written" } });
+
+    expect(readableUnitsMock.set).toHaveBeenCalledWith(false);
+  });
+
+  it("reflects a stored choice to keep scaled units as written", () => {
+    readableUnitsMock.enabled = false;
+
+    render(<PreferencesCard />);
+
+    expect(
+      (screen.getByRole("combobox", { name: /scaledUnits\.title/i }) as HTMLSelectElement).value
+    ).toBe("written");
+
+    readableUnitsMock.enabled = true;
   });
 
   it("reflects the stored today's-meals rule and writes a new one", () => {

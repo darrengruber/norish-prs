@@ -68,7 +68,7 @@ export { useCookbookRecipesQuery } from "./use-cookbook-recipes-query";
 export { useCookbooksMutations } from "./use-cookbooks-mutations";
 export { useCookbooksSubscription } from "./use-cookbooks-subscription";
 export { useEditableCookbooksQuery, useRecipeCookbooksQuery } from "./use-recipe-cookbooks-query";
-export { scaleIngredients } from "./scale-ingredients";
+export { scaleIngredients, scaleIngredientsForReading } from "./scale-ingredients";
 export { useRecipeSelection, type SelectedRecipe } from "./selection-store";
 export { MIN_SERVINGS, servingsDown, servingsShown, servingsUp } from "./servings";
 export { formatServings, useServingsScaler } from "./use-servings-scaler";
@@ -108,6 +108,7 @@ export {
   useLibraryFiltersStoreApi,
 } from "./library-filters-store";
 export { useAmountDisplayPreference } from "./use-amount-display-preference";
+export { useReadableUnitsPreference } from "./use-readable-units-preference";
 export {
   useAutoConversion,
   useSystemConversion,

@@ -75,6 +75,8 @@
     "cook": "Tilbered",
     "switchToDecimal": "Vis decimaler",
     "switchToFraction": "Vis brøker",
+    "keepWrittenUnits": "Behold enheder som skrevet",
+    "tidyScaledUnits": "Ryd op i enheder ved skalering",
     "servingsCount": "{count, plural, one {# portion} other {# portioner}}",
     "source": "Kilde",
     "addedBy": "Tilføjet af {name}",

@@ -75,6 +75,8 @@
     "cook": "Готви",
     "switchToDecimal": "Покажи десетични числа",
     "switchToFraction": "Покажи дроби",
+    "keepWrittenUnits": "Запази мерните единици както са",
+    "tidyScaledUnits": "Подреди мерните единици при мащабиране",
     "servingsCount": "{count, plural, one {# порция} other {# порции}}",
     "source": "Източник",
     "addedBy": "Добавено от {name}",

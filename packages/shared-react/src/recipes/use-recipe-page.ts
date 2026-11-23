@@ -12,9 +12,10 @@ import type {
 import type { RecipeEnrichmentResult } from "./use-recipe-enrichment";
 import { useTRPC } from "../trpc";
 import { useRecipePageStore, useRecipePageStoreApi } from "./recipe-page-store";
-import { scaleIngredients } from "./scale-ingredients";
+import { scaleIngredientsForReading } from "./scale-ingredients";
 import { servingsShown } from "./servings";
 import { useConvertMutation } from "./use-convert-mutation";
+import { useReadableUnitsPreference } from "./use-readable-units-preference";
 import { useRecipeEnrichment } from "./use-recipe-enrichment";
 
 /** The page's recipe from the Query cache; renders on its data only. */
@@ -47,10 +48,11 @@ export function usePageServings(): number {
 export function usePageIngredients(): RecipeIngredientsDto[] {
   const recipe = usePageRecipe();
   const servings = usePageServings();
+  const { enabled: readable } = useReadableUnitsPreference();
 
   if (!recipe) return [];
 
-  return scaleIngredients(recipe.recipeIngredients, recipe.servings, servings);
+  return scaleIngredientsForReading(recipe.recipeIngredients, recipe.servings, servings, readable);
 }
 
 /** The page's enrichment states, for showing them; requests go through `useRecipeEnrichment`. */

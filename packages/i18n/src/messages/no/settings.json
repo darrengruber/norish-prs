@@ -193,6 +193,14 @@
           "abbreviated": "Forkortet"
         }
       },
+      "scaledUnits": {
+        "title": "Enheter ved skalering",
+        "description": "Når du endrer antall porsjoner, vis 16 ss som 1 kopp og 1500 ml som 1,5 l",
+        "options": {
+          "tidy": "Ryddet",
+          "written": "Slik de er skrevet"
+        }
+      },
       "afterPlanning": {
         "title": "Etter planlegging av en oppskrift",
         "description": "Hva som skjer når du planlegger en oppskrift",

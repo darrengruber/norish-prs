@@ -75,6 +75,8 @@
     "cook": "طبخ",
     "switchToDecimal": "عرض الأرقام العشرية",
     "switchToFraction": "عرض الكسور",
+    "keepWrittenUnits": "أبقِ الوحدات كما كُتبت",
+    "tidyScaledUnits": "رتّب الوحدات عند تغيير الكمية",
     "servingsCount": "{count, plural, one {حصة واحدة} two {حصتان} few {# حصص} many {# حصة} other {# حصة}}",
     "source": "المصدر",
     "addedBy": "أضافها {name}",

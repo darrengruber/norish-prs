@@ -193,6 +193,14 @@
           "abbreviated": "Abbreviated"
         }
       },
+      "scaledUnits": {
+        "title": "Scaled units",
+        "description": "When you change servings, show 16 tbsp as 1 cup and 1500 ml as 1.5 l",
+        "options": {
+          "tidy": "Tidy",
+          "written": "As written"
+        }
+      },
       "afterPlanning": {
         "title": "After planning a recipe",
         "description": "What happens when you plan a recipe",

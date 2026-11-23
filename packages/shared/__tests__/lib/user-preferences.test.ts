@@ -77,6 +77,14 @@ describe("user preferences", () => {
     });
   });
 
+  it("tidies scaled units unless the reader turned it off, an old or broken choice reading as on", () => {
+    expect(DEVICE_PREFERENCE_DEFAULTS.readableUnits).toBe(true);
+    // Blocks stored before the choice existed have no key at all.
+    expect(phoneBlock({ groceryViewMode: "recipe" })?.readableUnits).toBe(true);
+    expect(phoneBlock({ readableUnits: false })?.readableUnits).toBe(false);
+    expect(phoneBlock({ readableUnits: "off" })?.readableUnits).toBe(true);
+  });
+
   it("keeps Hidden Items the reader's version does not know, so writing the list back drops none", () => {
     expect(phoneBlock({ hiddenItems: ["rating", "fromANewerVersion"] })).toMatchObject({
       hiddenItems: ["rating", "fromANewerVersion"],
@@ -116,6 +124,8 @@ describe("user preferences", () => {
       write({ amountDisplay: "decimal", todaySectionVisibility: "planned", recipeViewMode: "list" })
     ).toBe(true);
     expect(write({ recipePageColor: "neon" })).toBe(false);
+    expect(write({ readableUnits: false })).toBe(true);
+    expect(write({ readableUnits: "false" })).toBe(false);
     expect(write({ hiddenItems: ["timers", "fromANewerVersion"] })).toBe(true);
     expect(write({ hiddenItems: [""] })).toBe(false);
     expect(

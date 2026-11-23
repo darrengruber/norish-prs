@@ -75,6 +75,8 @@
     "cook": "Cook",
     "switchToDecimal": "Show decimals",
     "switchToFraction": "Show fractions",
+    "keepWrittenUnits": "Keep units as written",
+    "tidyScaledUnits": "Tidy units when scaling",
     "servingsCount": "{count, plural, one {# serving} other {# servings}}",
     "source": "Source",
     "addedBy": "Added by {name}",

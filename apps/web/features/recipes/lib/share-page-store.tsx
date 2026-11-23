@@ -6,8 +6,9 @@ import { createStore } from "zustand";
 import type { MeasurementSystem, PublicRecipeViewDTO } from "@norish/shared/contracts";
 import { createPageStoreContext } from "@norish/shared-react/page-store";
 import {
-  scaleIngredients,
+  scaleIngredientsForReading,
   servingsShown,
+  useReadableUnitsPreference,
   useSharedRecipeQuery,
   useSharePublicConfigQuery,
 } from "@norish/shared-react/recipes";
@@ -85,6 +86,7 @@ export function useShareSystems(): MeasurementSystem[] {
 export function useShareIngredients() {
   const recipe = useSharedRecipe();
   const servings = useShareServings();
+  const { enabled: readable } = useReadableUnitsPreference();
 
-  return scaleIngredients(recipe.recipeIngredients, recipe.servings, servings);
+  return scaleIngredientsForReading(recipe.recipeIngredients, recipe.servings, servings, readable);
 }

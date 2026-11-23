@@ -15,6 +15,8 @@ const mocks = vi.hoisted(() => ({
   ingredientSystems: ["metric", "us"] as ("metric" | "us")[],
   amountMode: "decimal" as "decimal" | "fraction",
   toggleAmountMode: vi.fn(),
+  readableUnits: true,
+  toggleReadableUnits: vi.fn(),
 }));
 
 vi.mock("@norish/shared-react/reader", async () =>
@@ -34,6 +36,10 @@ vi.mock("@norish/shared-react/recipes", async (importOriginal) => ({
     mode: mocks.amountMode,
     setMode: vi.fn(),
     toggleMode: mocks.toggleAmountMode,
+  }),
+  useReadableUnitsPreference: () => ({
+    enabled: mocks.readableUnits,
+    toggle: mocks.toggleReadableUnits,
   }),
 }));
 
@@ -81,6 +87,8 @@ beforeEach(() => {
   mocks.ingredientSystems = ["metric", "us"];
   mocks.amountMode = "decimal";
   mocks.toggleAmountMode.mockClear();
+  mocks.readableUnits = true;
+  mocks.toggleReadableUnits.mockClear();
 });
 
 /** The menu on a page showing the recipe the test set up. */
@@ -201,5 +209,31 @@ describe("IngredientsOptionsMenu", () => {
     // Fractions-versus-decimals is not the conversion Hidden Item, so the menu
     // still has something to say.
     expect(screen.getByText("recipes.detail.switchToFraction")).toBeInTheDocument();
+  });
+
+  it("offers to keep units as written while scaled units are tidied, and toggles on press", () => {
+    renderMenu();
+
+    fireEvent.click(screen.getByText("recipes.detail.keepWrittenUnits").closest("button")!);
+
+    expect(mocks.toggleReadableUnits).toHaveBeenCalled();
+    expect(screen.queryByText("recipes.detail.tidyScaledUnits")).not.toBeInTheDocument();
+  });
+
+  it("offers to tidy scaled units once the reader turned it off", () => {
+    mocks.readableUnits = false;
+
+    renderMenu();
+
+    expect(screen.getByText("recipes.detail.tidyScaledUnits")).toBeInTheDocument();
+    expect(screen.queryByText("recipes.detail.keepWrittenUnits")).not.toBeInTheDocument();
+  });
+
+  it("keeps the readable units choice for a reader who has hidden conversion", () => {
+    mocks.hidden = ["conversion"];
+
+    renderMenu();
+
+    expect(screen.getByText("recipes.detail.keepWrittenUnits")).toBeInTheDocument();
   });
 });

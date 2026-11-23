@@ -75,6 +75,8 @@
     "cook": "요리",
     "switchToDecimal": "소수점 표시",
     "switchToFraction": "분수 표시",
+    "keepWrittenUnits": "단위를 원래대로 유지",
+    "tidyScaledUnits": "인분 조절 시 단위 정리",
     "servingsCount": "{count}인분",
     "source": "출처",
     "addedBy": "{name} 님이 추가함",

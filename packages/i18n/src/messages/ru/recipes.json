@@ -75,6 +75,8 @@
     "cook": "Готовить",
     "switchToDecimal": "Показывать десятичные",
     "switchToFraction": "Показывать дроби",
+    "keepWrittenUnits": "Оставить единицы как в рецепте",
+    "tidyScaledUnits": "Упрощать единицы при пересчёте",
     "servingsCount": "{count, plural, one {# порция} few {# порции} many {# порций} other {# порции}}",
     "source": "Источник",
     "addedBy": "Добавил(а) {name}",

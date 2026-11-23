@@ -34,6 +34,9 @@ import {
   measurementSystemTarget,
 } from "@norish/shared/lib/user-preferences";
 
+/** The readable-units Device Preference as the choice the row offers. */
+const SCALED_UNIT_CHOICES = ["tidy", "written"] as const;
+
 export default function PreferencesCard() {
   const t = useTranslations("settings.user.preferences");
   const { user } = useProfileQuery();
@@ -49,6 +52,7 @@ export default function PreferencesCard() {
   const [hiddenItems, setHiddenItems] = useDevicePreference("hiddenItems");
   const [recipePageColor, setRecipePageColor] = useDevicePreference("recipePageColor");
   const [unitStyle, setUnitStyle] = useDevicePreference("unitStyle");
+  const [readableUnits, setReadableUnits] = useDevicePreference("readableUnits");
   const deviceKind = useDeviceKind();
 
   const currentLocale = getLocalePreference(user) ?? defaultLocale;
@@ -211,6 +215,15 @@ export default function PreferencesCard() {
           options={UNIT_STYLES}
           value={unitStyle}
           onChange={setUnitStyle}
+        />
+      </SettingRow>
+      <SettingRow description={t("scaledUnits.description")} title={t("scaledUnits.title")}>
+        <ChoiceSelect
+          label={t("scaledUnits.title")}
+          optionLabel={(option) => t(`scaledUnits.options.${option}`)}
+          options={SCALED_UNIT_CHOICES}
+          value={readableUnits ? "tidy" : "written"}
+          onChange={(choice) => setReadableUnits(choice === "tidy")}
         />
       </SettingRow>
     </SettingsCard>

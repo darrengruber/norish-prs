@@ -193,6 +193,14 @@
           "abbreviated": "Abgekürzt"
         }
       },
+      "scaledUnits": {
+        "title": "Einheiten beim Skalieren",
+        "description": "Wenn Sie die Portionen ändern, 16 EL als 1 Tasse und 1500 ml als 1,5 l anzeigen",
+        "options": {
+          "tidy": "Vereinfacht",
+          "written": "Wie angegeben"
+        }
+      },
       "afterPlanning": {
         "title": "Nach dem Planen eines Rezepts",
         "description": "Was passiert, wenn Sie ein Rezept planen",

@@ -193,6 +193,14 @@
           "abbreviated": "줄여서"
         }
       },
+      "scaledUnits": {
+        "title": "인분 조절 시 단위",
+        "description": "인분을 바꾸면 16큰술을 1컵으로, 1500ml를 1.5L로 표시합니다",
+        "options": {
+          "tidy": "정리",
+          "written": "원래대로"
+        }
+      },
       "afterPlanning": {
         "title": "레시피 계획 후",
         "description": "레시피를 계획할 때 일어나는 일",

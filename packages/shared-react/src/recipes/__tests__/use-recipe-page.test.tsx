@@ -15,6 +15,11 @@ import {
 } from "../use-recipe-page";
 
 const sendConvert = vi.hoisted(() => vi.fn());
+const readableUnits = vi.hoisted(() => ({ enabled: true }));
+
+vi.mock("../use-readable-units-preference", () => ({
+  useReadableUnitsPreference: () => ({ enabled: readableUnits.enabled, toggle: () => {} }),
+}));
 
 vi.mock("../../trpc", () => {
   const getKey = (input: unknown) => [["recipes", "get"], { input, type: "query" }];
@@ -68,6 +73,7 @@ function renderOnPage<T>(hook: () => T) {
 describe("the recipe page's reads", () => {
   beforeEach(() => {
     sendConvert.mockReset();
+    readableUnits.enabled = true;
   });
 
   it("shows the recipe's own servings and amounts until the reader picks", () => {
@@ -90,6 +96,23 @@ describe("the recipe page's reads", () => {
 
     expect(result.current.servings).toBe(3);
     expect(result.current.amounts).toEqual([150, null]);
+  });
+
+  it("shows a scaled amount in the unit it reads best in, unless the reader turned it off", () => {
+    const read = () => ({
+      setServings: useRecipePageStore((state) => state.setServings),
+      flour: usePageIngredients()[0],
+    });
+    const { result, rerender } = renderOnPage(read);
+
+    act(() => result.current.setServings(20));
+
+    expect(result.current.flour).toMatchObject({ amount: 1, unit: "kilogram" });
+
+    readableUnits.enabled = false;
+    rerender();
+
+    expect(result.current.flour).toMatchObject({ amount: 1000, unit: "g" });
   });
 
   it("shows a conversion on its way before the server answers", async () => {

@@ -25,6 +25,7 @@ import {
   useLoadedPageRecipe,
   usePageIngredients,
   usePageServings,
+  useReadableUnitsPreference,
   useRecipePageStore,
   useSystemConversion,
   useUnitFormatter,
@@ -70,10 +71,11 @@ export function ServingsControl() {
   );
 }
 
-/** Fractions or decimals, and the measurement system: what changes how the lines read. */
+/** Fractions or decimals, readable scaled units, and the measurement system: what changes how the lines read. */
 export function OptionsMenu() {
   const intl = useIntl();
   const { mode, toggleMode } = useAmountDisplayPreference();
+  const readableUnits = useReadableUnitsPreference();
   const conversion = useSystemConversion();
 
   return (
@@ -90,6 +92,16 @@ export function OptionsMenu() {
           }),
           systemImage: "plusminus",
           onPress: toggleMode,
+        },
+        {
+          key: "readable-units",
+          label: intl.formatMessage({
+            id: readableUnits.enabled
+              ? "recipes.detail.keepWrittenUnits"
+              : "recipes.detail.tidyScaledUnits",
+          }),
+          systemImage: "arrow.down.right.and.arrow.up.left",
+          onPress: readableUnits.toggle,
         },
         ...(conversion.isAvailable
           ? conversion.options

@@ -193,6 +193,14 @@
           "abbreviated": "Lyhennettyinä"
         }
       },
+      "scaledUnits": {
+        "title": "Yksiköt skaalattaessa",
+        "description": "Kun muutat annosmäärää, näytä 16 rkl kuppina ja 1500 ml 1,5 litrana",
+        "options": {
+          "tidy": "Siistitty",
+          "written": "Alkuperäiset"
+        }
+      },
       "afterPlanning": {
         "title": "Reseptin suunnittelun jälkeen",
         "description": "Mitä tapahtuu, kun suunnittelet reseptin",

@@ -193,6 +193,14 @@
           "abbreviated": "Skróty"
         }
       },
+      "scaledUnits": {
+        "title": "Jednostki przy skalowaniu",
+        "description": "Po zmianie liczby porcji pokazuj 16 łyżek jako 1 szklankę, a 1500 ml jako 1,5 l",
+        "options": {
+          "tidy": "Uproszczone",
+          "written": "Z przepisu"
+        }
+      },
       "afterPlanning": {
         "title": "Po zaplanowaniu przepisu",
         "description": "Co się dzieje, gdy planujesz przepis",

@@ -193,6 +193,14 @@
           "abbreviated": "Förkortade"
         }
       },
+      "scaledUnits": {
+        "title": "Enheter vid skalning",
+        "description": "När du ändrar antal portioner, visa 16 msk som 1 kopp och 1500 ml som 1,5 l",
+        "options": {
+          "tidy": "Förenklade",
+          "written": "Som skrivet"
+        }
+      },
       "afterPlanning": {
         "title": "Efter att ett recept planerats",
         "description": "Vad som händer när du planerar ett recept",

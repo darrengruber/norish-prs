@@ -193,6 +193,14 @@
           "abbreviated": "Forkortet"
         }
       },
+      "scaledUnits": {
+        "title": "Enheder ved skalering",
+        "description": "Når du ændrer antal portioner, vis 16 spsk som 1 kop og 1500 ml som 1,5 l",
+        "options": {
+          "tidy": "Ryddet op",
+          "written": "Som skrevet"
+        }
+      },
       "afterPlanning": {
         "title": "Efter planlægning af en opskrift",
         "description": "Hvad der sker, når du planlægger en opskrift",

@@ -42,6 +42,12 @@ Use the servings controls to scale ingredients, or tap the count to enter
 a number. The options menu has **Show decimals**, **Show fractions**, and
 metric or US conversion.
 
+A scaled amount moves to the unit it reads best in when it lands there on a
+whole, half or quarter: 16 tbsp shows as 1 cup, 1500 ml as 1.5 l. The recipe
+keeps the units it was written with. To see them as written, choose **Keep
+units as written** in the options menu, or set **Scaled units** in
+**Settings › Preferences** on the web.
+
 ## Cook mode and timers
 
 Tap **Cook** in the bottom bar. Swipe between steps and switch between

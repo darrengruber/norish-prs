@@ -193,6 +193,14 @@
           "abbreviated": "Abbreviate"
         }
       },
+      "scaledUnits": {
+        "title": "Unità quando scali",
+        "description": "Quando cambi le porzioni, mostra 16 cucchiai come 1 tazza e 1500 ml come 1,5 l",
+        "options": {
+          "tidy": "Semplificate",
+          "written": "Originali"
+        }
+      },
       "afterPlanning": {
         "title": "Dopo aver pianificato una ricetta",
         "description": "Cosa succede quando pianifichi una ricetta",

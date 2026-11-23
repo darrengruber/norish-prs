@@ -193,6 +193,14 @@
           "abbreviated": "Abreviadas"
         }
       },
+      "scaledUnits": {
+        "title": "Unidades al escalar",
+        "description": "Al cambiar las raciones, mostrar 16 cda como 1 taza y 1500 ml como 1,5 l",
+        "options": {
+          "tidy": "Simplificadas",
+          "written": "Originales"
+        }
+      },
       "afterPlanning": {
         "title": "Después de planificar una receta",
         "description": "Qué ocurre al planificar una receta",

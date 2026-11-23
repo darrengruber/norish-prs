@@ -193,6 +193,14 @@
           "abbreviated": "Abrégées"
         }
       },
+      "scaledUnits": {
+        "title": "Unités à l’ajustement",
+        "description": "Quand vous changez les portions, afficher 16 càs comme 1 tasse et 1500 ml comme 1,5 l",
+        "options": {
+          "tidy": "Simplifiées",
+          "written": "D’origine"
+        }
+      },
       "afterPlanning": {
         "title": "Après avoir planifié une recette",
         "description": "Ce qui se passe quand vous planifiez une recette",

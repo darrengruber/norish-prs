@@ -75,6 +75,8 @@
     "cook": "Cocinar",
     "switchToDecimal": "Mostrar decimales",
     "switchToFraction": "Mostrar fracciones",
+    "keepWrittenUnits": "Mantener las unidades originales",
+    "tidyScaledUnits": "Simplificar unidades al escalar",
     "servingsCount": "{count, plural, one {# ración} other {# raciones}}",
     "source": "Fuente",
     "addedBy": "Añadido por {name}",

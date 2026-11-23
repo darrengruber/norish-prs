@@ -193,6 +193,14 @@
           "abbreviated": "Abreviadas"
         }
       },
+      "scaledUnits": {
+        "title": "Unidades ao ajustar porções",
+        "description": "Ao mudar as porções, mostrar 16 colheres de sopa como 1 xícara e 1500 ml como 1,5 l",
+        "options": {
+          "tidy": "Simplificadas",
+          "written": "Originais"
+        }
+      },
       "afterPlanning": {
         "title": "Depois de planejar uma receita",
         "description": "O que acontece quando você planeja uma receita",

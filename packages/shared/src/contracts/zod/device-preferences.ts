@@ -47,6 +47,8 @@ export const DevicePreferencesSchema = z.object({
   /** Group similar ingredients (store view only). */
   groceryGroupSimilar: z.boolean().catch(true),
   amountDisplay: z.enum(AMOUNT_DISPLAY_MODES).catch("fraction"),
+  /** Show a scaled amount in the unit it reads best in: 16 tbsp as 1 cup. */
+  readableUnits: z.boolean().catch(true),
   unitStyle: z.enum(UNIT_STYLES).catch("written"),
   hiddenItems: HiddenItemsSchema.catch([]),
   recipePageColor: z.enum(RECIPE_PAGE_COLORS).catch("dish"),

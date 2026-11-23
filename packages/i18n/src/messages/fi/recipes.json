@@ -75,6 +75,8 @@
     "cook": "Kokkaa",
     "switchToDecimal": "Näytä desimaalit",
     "switchToFraction": "Näytä murtoluvut",
+    "keepWrittenUnits": "Pidä yksiköt alkuperäisinä",
+    "tidyScaledUnits": "Siisti yksiköt skaalattaessa",
     "servingsCount": "{count, plural, one {# annos} other {# annosta}}",
     "source": "Lähde",
     "addedBy": "Lisännyt {name}",

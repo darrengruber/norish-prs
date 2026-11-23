@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   AdjustmentsHorizontalIcon,
+  ArrowsPointingInIcon,
   ArrowsRightLeftIcon,
   CalculatorIcon,
   SparklesIcon,
@@ -11,7 +12,11 @@ import { Button, Dropdown, Label } from "@heroui/react";
 import { useTranslations } from "next-intl";
 import { twMerge } from "tailwind-merge";
 
-import { useAmountDisplayPreference, useSystemConversion } from "@norish/shared-react/recipes";
+import {
+  useAmountDisplayPreference,
+  useReadableUnitsPreference,
+  useSystemConversion,
+} from "@norish/shared-react/recipes";
 import { cssAIGradientText, cssAIIconColor, cssButtonPill } from "@norish/web/config/css-tokens";
 
 type OptionItem = {
@@ -26,18 +31,19 @@ type OptionItem = {
 };
 
 /**
- * The two things a reader changes about the ingredients themselves: whether
- * amounts read as fractions or decimals, and which measurement system they
- * are in.
+ * What a reader changes about the ingredients themselves: whether amounts
+ * read as fractions or decimals, whether a scaled amount moves to the unit it
+ * reads best in, and which measurement system they are in.
  *
  * They live on the Ingredients card rather than in the page's `⋯` menu
  * because that is what they act on — a reader looking at "1½ cups" and
  * wanting "1.5" looks at the list, not at the page. The card header has room
- * for exactly one control beside the title, so both fold into one menu.
+ * for exactly one control beside the title, so they all fold into one menu.
  */
 export default function IngredientsOptionsMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { mode, toggleMode } = useAmountDisplayPreference();
+  const readableUnits = useReadableUnitsPreference();
   const conversion = useSystemConversion();
   const t = useTranslations("recipes.detail");
   const tConvert = useTranslations("recipes.convert");
@@ -50,6 +56,12 @@ export default function IngredientsOptionsMenu() {
       // as a different weight and never lines up with them.
       icon: <CalculatorIcon className="size-5" />,
       onPress: toggleMode,
+    },
+    {
+      key: "readable-units",
+      label: readableUnits.enabled ? t("keepWrittenUnits") : t("tidyScaledUnits"),
+      icon: <ArrowsPointingInIcon className="size-5" />,
+      onPress: readableUnits.toggle,
     },
   ];
 

@@ -75,6 +75,8 @@
     "cook": "Laga mat",
     "switchToDecimal": "Visa decimaler",
     "switchToFraction": "Visa bråk",
+    "keepWrittenUnits": "Behåll enheter som skrivet",
+    "tidyScaledUnits": "Förenkla enheter vid skalning",
     "servingsCount": "{count, plural, one {# portion} other {# portioner}}",
     "source": "Källa",
     "addedBy": "Tillagt av {name}",

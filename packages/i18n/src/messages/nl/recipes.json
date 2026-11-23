@@ -75,6 +75,8 @@
     "cook": "Koken",
     "switchToDecimal": "Toon decimalen",
     "switchToFraction": "Toon breuken",
+    "keepWrittenUnits": "Eenheden laten zoals geschreven",
+    "tidyScaledUnits": "Eenheden vereenvoudigen bij schalen",
     "servingsCount": "{count, plural, one {# portie} other {# porties}}",
     "source": "Bron",
     "addedBy": "Toegevoegd door {name}",
